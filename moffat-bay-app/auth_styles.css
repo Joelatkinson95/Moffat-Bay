@@ -1,0 +1,324 @@
+/* Login and Sign Up page styles */
+/* Matches the classmate's split page design with Moffat Bay colors */
+
+
+/* Color variables (same as mb_stylesheet.css) */
+:root {
+    --sea_blue: #1a4a6b;
+    --sea_blue_dark: #0f2d42;
+    --deep_sea_green: #1a5c4a;
+    --sea_green_dark: #0f3d30;
+    --white: #ffffff;
+    --off_white: #f4f6f8;
+    --text_dark: #1a1a2e;
+    --nav_height: 72px;
+}
+
+
+/* Page split in half */
+.auth_page {
+    margin-top: var(--nav_height);
+    min-height: calc(100vh - var(--nav_height));
+    display: flex;
+}
+
+
+/* Left side */
+.auth_left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top part of left side - white background with brand name */
+.auth_left_top {
+    background: var(--white);
+    padding: 2rem;
+    text-align: center;
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand_name {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--deep_sea_green);
+    line-height: 1.1;
+}
+
+.brand_sub {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--sea_blue);
+    margin-top: 0.3rem;
+}
+
+/* Bottom part of left side - green background */
+.auth_left_bottom {
+    background: var(--deep_sea_green);
+    padding: 2.5rem 2rem;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left_heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.left_description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.social_label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.75rem;
+}
+
+/* Social media icons */
+.social_icons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.social_link:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Right side with login form */
+.auth_right {
+    width: 50%;
+    background: var(--white);
+    padding: 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Login heading */
+.auth_heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text_dark);
+    margin-bottom: 0.5rem;
+}
+
+/* Subtext under heading */
+.auth_subtext {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.create_link {
+    color: var(--sea_blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.create_link:hover {
+    text-decoration: underline;
+}
+
+/* Each form field */
+.auth_field {
+    margin-bottom: 1rem;
+}
+
+.auth_field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--text_dark);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.auth_field input {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.auth_field input:focus {
+    border-color: var(--sea_blue);
+}
+
+/* Remember me and forgot password row */
+.auth_options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.82rem;
+}
+
+.remember_me {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.remember_me input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.forgot_link {
+    color: var(--deep_sea_green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot_link:hover {
+    text-decoration: underline;
+}
+
+/* Submit button */
+.auth_btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--deep_sea_green);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.auth_btn:hover {
+    background: var(--sea_green_dark);
+}
+
+/* Bottom small text */
+.auth_bottom {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.auth_bottom a {
+    color: var(--sea_blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth_bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Two fields side by side (first name / last name on signup) */
+.auth_row {
+    display: flex;
+    gap: 1rem;
+}
+
+.auth_row .auth_field {
+    flex: 1;
+}
+
+/* Link to switch between login and signup */
+.auth_switch {
+    text-align: center;
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.auth_switch a {
+    color: var(--deep_sea_green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth_switch a:hover {
+    text-decoration: underline;
+}
+
+/* Error message */
+.auth_error {
+    background: #fdecea;
+    color: #c0392b;
+    padding: 0.6rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Success message */
+.auth_success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.6rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+/* Make it stack on smaller screens */
+@media (max-width: 820px) {
+    .auth_page {
+        flex-direction: column;
+    }
+
+    .auth_left,
+    .auth_right {
+        width: 100%;
+    }
+
+    .auth_left_top {
+        padding: 2rem;
+    }
+
+    .auth_left_bottom {
+        padding: 2rem;
+    }
+
+    .auth_right {
+        padding: 2rem;
+    }
+}

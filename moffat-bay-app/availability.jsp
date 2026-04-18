@@ -33,8 +33,8 @@
     </ul>
 
     <div class="nav_auth">
-        <a href="login.html" class="nav_login">Log In</a>
-        <a href="signup.html" class="nav_signup">Sign Up</a>
+        <a href="login.jsp" class="nav_login">Log In</a>
+        <a href="signup.jsp" class="nav_signup">Sign Up</a>
     </div>
 </nav>
 
