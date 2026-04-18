@@ -43,11 +43,50 @@ CREATE TABLE rooms (
 );
 
 INSERT INTO rooms (room_id, room_type, room_price, room_status) VALUES
-(101, 'Double Queen', 119.99, 'available'),
-(102, 'Double Queen', 119.99, 'available'),
-(103, 'Double Queen', 119.99, 'available'),
-(106, 'King',         149.99, 'available'),
-(109, 'Family Suite', 219.99, 'available');
+-- Floor 1
+(101, 'Double Queen',       119.99, 'available'),
+(102, 'Double Queen',       119.99, 'available'),
+(103, 'Double Queen',       119.99, 'available'),
+(104, 'Double Queen',       119.99, 'available'),
+(105, 'Double Queen',       119.99, 'available'),
+(106, 'King',               149.99, 'available'),
+(107, 'King',               149.99, 'available'),
+(108, 'King',               149.99, 'available'),
+(109, 'Family Suite',       219.99, 'available'),
+(110, 'Family Suite',       219.99, 'available'),
+-- Floor 2
+(201, 'Double Queen',       119.99, 'available'),
+(202, 'Double Queen',       119.99, 'available'),
+(203, 'Double Queen',       119.99, 'available'),
+(204, 'Double Queen',       119.99, 'available'),
+(205, 'Double Queen',       119.99, 'available'),
+(206, 'King',               149.99, 'available'),
+(207, 'King',               149.99, 'available'),
+(208, 'King',               149.99, 'available'),
+(209, 'Family Suite',       219.99, 'available'),
+(210, 'Family Suite',       219.99, 'available'),
+-- Floor 3
+(301, 'Double Queen',       119.99, 'available'),
+(302, 'Double Queen',       119.99, 'available'),
+(303, 'Double Queen',       119.99, 'available'),
+(304, 'Double Queen',       119.99, 'available'),
+(305, 'Double Queen',       119.99, 'available'),
+(306, 'King',               149.99, 'available'),
+(307, 'King',               149.99, 'available'),
+(308, 'King',               149.99, 'available'),
+(309, 'Family Suite',       219.99, 'available'),
+(310, 'Family Suite',       219.99, 'available'),
+-- Floor 4
+(401, 'Double Queen',       119.99, 'available'),
+(402, 'Double Queen',       119.99, 'available'),
+(403, 'Double Queen',       119.99, 'available'),
+(404, 'Double Queen',       119.99, 'available'),
+(405, 'King',               149.99, 'available'),
+(406, 'King',               149.99, 'available'),
+(407, 'King',               149.99, 'available'),
+(408, 'Family Suite',       219.99, 'available'),
+(409, 'Family Suite',       219.99, 'available'),
+(410, 'Presidential Suite', 499.99, 'available');
 
 --------------------------------------------------
 -- Table: reservation

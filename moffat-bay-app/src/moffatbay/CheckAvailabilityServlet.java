@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* Handles the booking form on index.html.
-   Looks up rooms that are not booked on the chosen dates
-   and then sends the user to availability.jsp to pick one. */
+   Checks which room TYPES have at least one room open for the chosen dates
+   and sends the user to availability.jsp to pick a type. */
 @WebServlet("/CheckAvailabilityServlet")
 public class CheckAvailabilityServlet extends HttpServlet {
 
@@ -32,12 +32,12 @@ public class CheckAvailabilityServlet extends HttpServlet {
         int children = Integer.parseInt(request.getParameter("children"));
         int totalGuests = adults + children;
 
-        // This list will hold all the rooms that are free for those dates
-        List<Room> availableRooms = new ArrayList<>();
+        // This list will hold the room types that have at least one room open
+        List<Room> availableTypes = new ArrayList<>();
 
-        // SQL query: grab rooms that are available and not already booked for the chosen dates
+        // SQL: group by room type, count how many rooms of each type are free
         String sql =
-                "SELECT room_id, room_type, room_price, room_status " +
+                "SELECT room_type, room_price, COUNT(*) AS available_count " +
                 "FROM rooms " +
                 "WHERE room_status = 'available' " +
                 "AND room_id NOT IN ( " +
@@ -45,24 +45,24 @@ public class CheckAvailabilityServlet extends HttpServlet {
                 "    WHERE reservation_status = 'confirmed' " +
                 "    AND ? < reservation_checkOut " +
                 "    AND ? > reservation_checkIn " +
-                ")";
+                ") " +
+                "GROUP BY room_type, room_price";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            // Fill in the two date placeholders in the query
+            // Fill in the date placeholders
             stmt.setDate(1, Date.valueOf(checkIn));
             stmt.setDate(2, Date.valueOf(checkOut));
 
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 Room room = new Room(
-                        rs.getInt("room_id"),
                         rs.getString("room_type"),
                         rs.getBigDecimal("room_price"),
-                        rs.getString("room_status")
+                        rs.getInt("available_count")
                 );
-                availableRooms.add(room);
+                availableTypes.add(room);
             }
 
         } catch (SQLException e) {
@@ -70,7 +70,7 @@ public class CheckAvailabilityServlet extends HttpServlet {
         }
 
         // Save the data so availability.jsp can display it
-        request.setAttribute("availableRooms", availableRooms);
+        request.setAttribute("availableTypes", availableTypes);
         request.setAttribute("checkIn", checkIn);
         request.setAttribute("checkOut", checkOut);
         request.setAttribute("rooms", rooms);

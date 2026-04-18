@@ -2,27 +2,21 @@ package moffatbay;
 
 import java.math.BigDecimal;
 
-/* Simple class that holds information about one room.
-   Matches the columns in the rooms table. */
+/* Holds info about a room type and how many are available.
+   Used by the availability page to show what the customer can book. */
 public class Room {
 
-    private int roomId;
     private String roomType;
     private BigDecimal roomPrice;
-    private String roomStatus;
+    private int availableCount;
 
-    public Room(int roomId, String roomType, BigDecimal roomPrice, String roomStatus) {
-        this.roomId = roomId;
+    public Room(String roomType, BigDecimal roomPrice, int availableCount) {
         this.roomType = roomType;
         this.roomPrice = roomPrice;
-        this.roomStatus = roomStatus;
+        this.availableCount = availableCount;
     }
 
     // Getters so the JSP page can read the values
-    public int getRoomId() {
-        return roomId;
-    }
-
     public String getRoomType() {
         return roomType;
     }
@@ -31,7 +25,7 @@ public class Room {
         return roomPrice;
     }
 
-    public String getRoomStatus() {
-        return roomStatus;
+    public int getAvailableCount() {
+        return availableCount;
     }
 }

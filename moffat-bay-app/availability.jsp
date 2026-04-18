@@ -1,4 +1,4 @@
-OK<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="moffatbay.Room" %>
 
@@ -13,62 +13,15 @@ OK<%@ page language="java" contentType="text/html; charset=UTF-8" %>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <!-- Link to stylesheet -->
-    <link rel="stylesheet" href="../src/moffatbay/mb_stylesheet.css">
+    <link rel="stylesheet" href="mb_stylesheet.css">
 
-    <!-- A few simple styles just for this page -->
-    <style>
-        .results_section {
-            padding: 6rem 2rem 3rem;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-        .results_heading {
-            color: var(--sea_blue);
-            margin-bottom: 1rem;
-        }
-        .search_summary {
-            background: var(--off_white);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-        }
-        .rooms_table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .rooms_table th,
-        .rooms_table td {
-            padding: 0.8rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .rooms_table th {
-            background: var(--sea_blue);
-            color: var(--white);
-        }
-        .book_link {
-            background: var(--deep_sea_green);
-            color: var(--white);
-            padding: 0.4rem 0.8rem;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .book_link:hover {
-            background: var(--sea_green_dark);
-        }
-        .no_rooms {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text_dark);
-        }
-    </style>
 </head>
 <body>
 
 <!-- Same navigation bar as the landing page -->
 <nav>
-    <a href="../src/moffatbay/index.html" class="nav_logo">
-        <img src="../mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
+    <a href="index.html" class="nav_logo">
+        <img src="mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
     </a>
 
     <ul class="nav_links">
@@ -100,28 +53,26 @@ OK<%@ page language="java" contentType="text/html; charset=UTF-8" %>
     </div>
 
     <%
-        // Pull the list of rooms the servlet put in the request
-        List<Room> roomList = (List<Room>) request.getAttribute("availableRooms");
+        // Pull the list of available room types from the servlet
+        List<Room> typeList = (List<Room>) request.getAttribute("availableTypes");
 
-        if (roomList != null && !roomList.isEmpty()) {
+        if (typeList != null && !typeList.isEmpty()) {
     %>
         <table class="rooms_table">
             <tr>
-                <th>Room</th>
-                <th>Type</th>
+                <th>Room Type</th>
                 <th>Price per Night</th>
                 <th>Reserve</th>
             </tr>
-            <% for (Room r : roomList) { %>
+            <% for (Room r : typeList) { %>
                 <tr>
-                    <td><%= r.getRoomId() %></td>
                     <td><%= r.getRoomType() %></td>
                     <td>$<%= r.getRoomPrice() %></td>
                     <td>
-                        <!-- Send user to the reservations page with the picked room and dates -->
+                        <!-- Send the room TYPE and dates to the reservations page -->
                         <a class="book_link"
-                           href="reservations.html?roomId=<%= r.getRoomId() %>&checkIn=${checkIn}&checkOut=${checkOut}">
-                            Book This Room
+                           href="reservations.html?roomType=<%= r.getRoomType() %>&checkIn=${checkIn}&checkOut=${checkOut}&guests=${totalGuests}">
+                            Book Now
                         </a>
                     </td>
                 </tr>
@@ -130,7 +81,7 @@ OK<%@ page language="java" contentType="text/html; charset=UTF-8" %>
     <% } else { %>
         <div class="no_rooms">
             <p>Sorry, no rooms are available for those dates.</p>
-            <p>Please <a href="../src/moffatbay/index.html">go back</a> and try different dates.</p>
+            <p>Please <a href="index.html">go back</a> and try different dates.</p>
         </div>
     <% } %>
 
