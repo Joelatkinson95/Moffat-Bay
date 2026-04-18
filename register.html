@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moffat Bay | Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="index.html" class="nav_logo">
+            <img src="moffat-bay-logo.jpg" alt="Moffat Bay Resort and Marina logo">
+        </a>
+
+        <ul class="nav_links">
+            <li><a href="#">Book</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Attractions</a></li>
+            <li><a href="#">Reservations</a></li>
+        </ul>
+
+        <div class="nav_auth">
+            <a href="login.html" class="nav_login">Log In</a>
+            <a href="register.html" class="nav_signup">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="auth-page">
+        <div class="auth-left">
+            <div class="auth-left-top">
+                <div class="auth-branding">
+                    <img src="moffat-bay-logo.jpg" alt="Moffat Bay Resort and Marina logo">
+                </div>
+            </div>
+
+            <div class="auth-left-bottom">
+                <h2>Say hello<br>to nature.</h2>
+
+                <p class="description">
+                    Moffat Bay is a serene coastal destination offering scenic
+                    views, relaxing stays, outdoor activities, and unforgettable
+                    waterfront experiences for visitors.
+                </p>
+
+                <div class="social-text">Please visit our social medias</div>
+
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                    <a href="#" aria-label="Instagram">ig</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <h1>Sign Up</h1>
+            <p class="auth-subtext">
+                Already have an account? <a href="login.html">Log in</a>
+            </p>
+
+            <form class="auth-form" method="post" action="">
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input id="reg-username" type="text" name="username" placeholder="Select Username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input id="reg-email" type="email" name="email" placeholder="Select Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input id="reg-password" type="password" name="password" placeholder="Select Password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-confirm-password">Confirm Password</label>
+                    <input id="reg-confirm-password" type="password" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+
+                <div class="auth-btn-wrap">
+                    <button type="submit" class="auth-btn">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
