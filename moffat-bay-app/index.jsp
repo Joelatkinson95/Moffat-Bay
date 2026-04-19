@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +17,8 @@
 
 <!-- Navigation bar at top of page -->
 <nav>
-    <a href="index.html" class="nav_logo">
-        <img src="../../mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
+    <a href="index.jsp" class="nav_logo">
+        <img src="mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
     </a>
 
     <!-- Main menu links -->
@@ -27,17 +29,22 @@
         <li><a href="reservations.html">Reservations</a></li>
     </ul>
 
-    <!-- Log in and sign up buttons -->
+    <!-- Show welcome message if logged in, otherwise show login/signup -->
     <div class="nav_auth">
-        <a href="login.jsp" class="nav_login">Log In</a>
-        <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% if (session.getAttribute("firstName") != null) { %>
+            <span class="nav_welcome">Welcome, <%= session.getAttribute("firstName") %> <%= session.getAttribute("lastName") %></span>
+            <a href="LogoutServlet" class="nav_login">Log Out</a>
+        <% } else { %>
+            <a href="login.jsp" class="nav_login">Log In</a>
+            <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% } %>
     </div>
 </nav>
 
 
 <!-- Hero section with background picture and booking form -->
 <section class="hero">
-    <img src="../../mbpics/mb_whale.jpg" alt="Pacific Northwest coastline with orca whale" class="hero_img">
+    <img src="mbpics/mb_whale.jpg" alt="Pacific Northwest coastline with orca whale" class="hero_img">
     <div class="hero_overlay"></div>
 
     <!-- Main headline over the picture -->
@@ -123,7 +130,7 @@
                 Northwest at its most pure and undisturbed.
             </p>
         </div>
-        <img src="../../mbpics/mb_lodge.jpg" alt="Moffat Bay Lodge exterior" class="welcome_img">
+        <img src="mbpics/mb_lodge.jpg" alt="Moffat Bay Lodge exterior" class="welcome_img">
     </div>
 
 </section>

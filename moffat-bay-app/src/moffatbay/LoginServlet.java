@@ -45,9 +45,10 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("user_id", rs.getInt("user_id"));
                     session.setAttribute("email", rs.getString("user_email"));
                     session.setAttribute("firstName", rs.getString("user_firstName"));
+                    session.setAttribute("lastName", rs.getString("user_lastName"));
 
                     // Send them to the home page
-                    response.sendRedirect("index.html");
+                    response.sendRedirect("index.jsp");
                 } else {
                     // Wrong password
                     request.setAttribute("error", "Invalid password. Please try again.");

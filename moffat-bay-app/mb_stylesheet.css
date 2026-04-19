@@ -112,6 +112,14 @@ nav {
     color: var(--white);
 }
 
+/* Welcome message shown when user is logged in */
+.nav_welcome {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--sea_blue);
+    white-space: nowrap;
+}
+
 .nav_signup {
     display: inline-flex;
     align-items: center;

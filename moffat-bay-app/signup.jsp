@@ -21,7 +21,7 @@
 
 <!-- Navigation bar -->
 <nav>
-    <a href="index.html" class="nav_logo">
+    <a href="index.jsp" class="nav_logo">
         <img src="mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
     </a>
 
@@ -33,8 +33,13 @@
     </ul>
 
     <div class="nav_auth">
-        <a href="login.jsp" class="nav_login">Log In</a>
-        <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% if (session.getAttribute("firstName") != null) { %>
+            <span class="nav_welcome">Welcome, <%= session.getAttribute("firstName") %> <%= session.getAttribute("lastName") %></span>
+            <a href="LogoutServlet" class="nav_login">Log Out</a>
+        <% } else { %>
+            <a href="login.jsp" class="nav_login">Log In</a>
+            <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% } %>
     </div>
 </nav>
 

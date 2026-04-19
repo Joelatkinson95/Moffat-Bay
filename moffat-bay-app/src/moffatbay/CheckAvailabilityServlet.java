@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/* Handles the booking form on index.html.
+/* Handles the booking form on index.jsp.
    Checks which room TYPES have at least one room open for the chosen dates
    and sends the user to availability.jsp to pick a type. */
 @WebServlet("/CheckAvailabilityServlet")
