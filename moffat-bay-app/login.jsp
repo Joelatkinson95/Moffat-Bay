@@ -28,7 +28,6 @@
     <ul class="nav_links">
         <li><a href="book.html">Book</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="attractions.html">Attractions</a></li>
         <li><a href="reservations.html">Reservations</a></li>
     </ul>
