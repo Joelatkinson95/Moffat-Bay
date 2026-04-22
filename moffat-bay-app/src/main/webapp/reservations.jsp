@@ -104,6 +104,17 @@
     <!-- Shared site stylesheet (nav + fonts) loaded BEFORE page-specific css so local rules can override if needed -->
     <link rel="stylesheet" href="mb_stylesheet.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Force the shared nav's typography on a Tailwind page: Tailwind preflight otherwise
+         overrides font-family/weight inherited from body. Scoped to nav so the rest of
+         the page keeps Tailwind's defaults. -->
+    <style>
+        nav, nav * { font-family: 'Montserrat', sans-serif; }
+        nav .nav_links a { font-weight: 600; font-size: clamp(0.82rem, 1.2vw, 1.1rem); }
+        nav .nav_login  { font-weight: 600; font-size: 0.88rem; }
+        nav .nav_welcome{ font-weight: 600; font-size: 0.85rem; }
+        nav .nav_signup { font-weight: 700; font-size: 0.82rem; }
+    </style>
 </head>
 <body>
 
