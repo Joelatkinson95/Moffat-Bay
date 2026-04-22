@@ -23,10 +23,10 @@
 
     <!-- Main menu links -->
     <ul class="nav_links">
-        <li><a href="book.html">Book</a></li>
+        <li><a href="reservations.jsp">Book</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="attractions.html">Attractions</a></li>
-        <li><a href="reservations.html">Reservations</a></li>
+        <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
     </ul>
 
     <!-- Show welcome message if logged in, otherwise show login/signup -->
