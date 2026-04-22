@@ -25,10 +25,10 @@
     </a>
 
     <ul class="nav_links">
-        <li><a href="book.html">Book</a></li>
+        <li><a href="reservations.jsp">Book</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="attractions.html">Attractions</a></li>
-        <li><a href="reservations.html">Reservations</a></li>
+        <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
     </ul>
 
     <div class="nav_auth">
@@ -75,7 +75,7 @@
                     <td>
                         <!-- Send the room TYPE and dates to the reservations page -->
                         <a class="book_link"
-                           href="reservations.html?roomType=<%= r.getRoomType() %>&checkIn=${checkIn}&checkOut=${checkOut}&guests=${totalGuests}">
+                           href="reservations.jsp?roomType=<%= r.getRoomType() %>&checkIn=${checkIn}&checkOut=${checkOut}&guests=${totalGuests}">
                             Book Now
                         </a>
                     </td>

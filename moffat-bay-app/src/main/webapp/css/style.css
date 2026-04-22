@@ -1,0 +1,115 @@
+:root {
+    --moffat-navy: #003057;
+    --moffat-green: #1d5b3d;
+    --moffat-link-blue: #5a8fbb;
+    --moffat-light-bg: #f4f7f6;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: #1e293b;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link {
+    color: var(--moffat-link-blue);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--moffat-navy);
+}
+
+.btn-signup {
+    background-color: var(--moffat-navy);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+}
+
+.btn-signup i {
+    margin-left: 6px;
+    font-size: 0.6rem;
+}
+
+.login-link {
+    color: var(--moffat-green);
+    font-weight: 700;
+}
+
+.header-border {
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.booking-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-check {
+    background-color: var(--moffat-navy);
+    color: white;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+.btn-check:hover {
+    opacity: 0.9;
+}
+
+.error-text {
+    color: #dc2626;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 4px;
+    display: none;
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: #dc2626;
+}
+
+.modal-bg {
+    background-color: rgba(0, 48, 87, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
