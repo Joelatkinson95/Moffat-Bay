@@ -94,52 +94,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moffat Bay Resort - Reservations</title>
 
-    <!-- Tailwind + icons to match the mockup -->
+    <!-- Google Fonts (match landing page) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    <!-- Tailwind + icons for the reservation page body -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Shared site stylesheet (nav + fonts) loaded BEFORE page-specific css so local rules can override if needed -->
+    <link rel="stylesheet" href="mb_stylesheet.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- Header / nav — mockup styling, auth-aware buttons from the existing app -->
-<header class="bg-white header-border sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 md:px-10">
-        <div class="flex justify-between h-20 md:h-24 items-center">
-            <a href="index.jsp" class="flex items-center space-x-2 cursor-pointer">
-                <div class="border-[1.5px] border-emerald-900 p-1 flex items-center bg-white">
-                    <div class="flex flex-col items-center px-1 border-r border-emerald-900 pr-1.5 md:pr-2">
-                        <span style="color:#1d5b3d" class="font-bold text-base md:text-xl leading-none">Moffat</span>
-                        <span style="color:#1d5b3d" class="font-bold text-base md:text-xl leading-none">Bay</span>
-                    </div>
-                    <div class="pl-1.5 md:pl-2 flex flex-col items-center">
-                        <i class="fas fa-monument text-slate-600 text-sm md:text-lg"></i>
-                        <span class="text-[7px] md:text-[8px] font-bold text-slate-500 mt-1">LODGE</span>
-                    </div>
-                </div>
-            </a>
+<!-- Shared nav — matches landing page styling; auth-aware and shows Lookup only when signed in -->
+<nav>
+    <a href="index.jsp" class="nav_logo">
+        <img src="mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
+    </a>
 
-            <nav class="hidden lg:flex space-x-6 xl:space-x-10 text-[11px] xl:text-sm font-bold uppercase">
-                <a href="index.jsp" class="nav-link">HOME</a>
-                <a href="reservations.jsp" class="nav-link">BOOK</a>
-                <a href="LookupReservationServlet" class="nav-link" style="color:var(--moffat-navy)">LOOKUP</a>
-            </nav>
+    <ul class="nav_links">
+        <li><a href="reservations.jsp">Book</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="attractions.html">Attractions</a></li>
+        <% if (session.getAttribute("user_id") != null) { %>
+            <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
+        <% } %>
+    </ul>
 
-            <div class="flex items-center space-x-3 md:space-x-6">
-                <% if (session.getAttribute("firstName") != null) { %>
-                    <span class="text-xs md:text-sm text-slate-600">
-                        Welcome, <%= session.getAttribute("firstName") %>
-                    </span>
-                    <a href="LogoutServlet" class="login-link text-xs md:text-sm">Log Out</a>
-                <% } else { %>
-                    <a href="login.jsp" class="login-link text-xs md:text-sm">Log In</a>
-                    <a href="signup.jsp" class="btn-signup">SIGN UP <i class="fas fa-arrow-right"></i></a>
-                <% } %>
-            </div>
-        </div>
+    <div class="nav_auth">
+        <% if (session.getAttribute("firstName") != null) { %>
+            <span class="nav_welcome">Welcome, <%= session.getAttribute("firstName") %> <%= session.getAttribute("lastName") %></span>
+            <a href="LogoutServlet" class="nav_login">Log Out</a>
+        <% } else { %>
+            <a href="login.jsp" class="nav_login">Log In</a>
+            <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% } %>
     </div>
-</header>
+</nav>
 
-<main class="max-w-6xl mx-auto py-6 md:py-12 px-4">
+<main class="max-w-6xl mx-auto py-6 md:py-12 px-4" style="margin-top: var(--nav_height);">
 
     <!-- SECTION: BOOKING FORM -->
     <section id="page-booking" class="page-content fade-in <%= "booking".equals(view) ? "" : "hidden" %>">
