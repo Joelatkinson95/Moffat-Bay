@@ -115,6 +115,9 @@
         Welcome to the Moffat Bay Resort Lodge, Joviedsa Island
     </h2>
 
+    <!-- Salmon divider between heading and welcome card -->
+    <div class="welcome_salmon" role="img" aria-label="Salmon"></div>
+
     <!-- Blue card with info and lodge picture -->
     <div class="welcome_card">
         <div class="welcome_card_text">

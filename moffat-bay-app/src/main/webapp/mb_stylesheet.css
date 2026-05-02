@@ -301,6 +301,15 @@ nav {
     flex-shrink: 0;
 }
 
+.welcome_salmon {
+    width: 98px;
+    height: 98px;
+    margin: 1.75rem auto 2rem;
+    background-color: var(--deep_sea_green);
+    -webkit-mask: url('mbpics/mb_salmon.png') no-repeat center / contain;
+    mask: url('mbpics/mb_salmon.png') no-repeat center / contain;
+}
+
 .welcome_card {
     max-width: 100%;
     margin: 0 auto;
