@@ -1,196 +1,58 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moffat Bay - Attractions</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Dancing+Script:wght@600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-        /* HEADER */
-        .header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 15px;
-        }
+    <!-- Shared site stylesheet (nav + attraction-page styles) -->
+    <link rel="stylesheet" href="mb_stylesheet.css">
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav_logo img {
-            height: 60px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .nav a, .login a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        
-	
-        .nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* LAYOUT */
-        .main-container {
-            display: flex;
-            padding: 20px;
-        }
-
-        .content {
-            flex: 3;
-            background: white;
-            padding: 20px;
-            margin-right: 20px;
-        }
-
-        .sidebar {
-            flex: 1;
-        }
-
-        .box {
-            background: #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .social {
-            background: #5dade2;
-            color: white;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 28px;
-            color: white;
-            background: rgba(0,0,0,0.5);
-            padding: 15px 25px;
-            border-radius: 5px;
-        }
-
-        .hero:hover .hero-img {
-            filter: brightness(80%);
-        }
-
-        /* CATEGORY CARDS */
-        .categories {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .category-link {
-            width: 30%;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .category {
-            position: relative;
-            overflow: hidden;
-            border-radius: 5px;
-        }
-
-        .category-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .category-text {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .category:hover .category-img {
-            filter: brightness(75%);
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            font-size: 12px;
-        }
-    </style>
+    <!-- Font Awesome (for social media icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <div class="header-container">
-        <img src="mbpics/mb_logo.jpg" alt="Logo">
+<!-- Shared nav -->
+<nav>
+    <a href="index.jsp" class="nav_logo">
+        <img src="mbpics/mb_logo.jpg" alt="Moffat Bay Resort and Marina Logo">
+    </a>
 
-        <div class="nav">
-            <a href="index.jsp">Home</a>
-            <a href="reservations.jsp">Book</a>
-            <a href="attractions.jsp">Attractions</a>
-            <a href="about.jsp">About Us</a>
-            <a href="reservations.jsp">Lodge Reservations</a>
-        </div>
+    <ul class="nav_links">
+        <li><a href="reservations.jsp">Book</a></li>
+        <li><a href="about.jsp">About Us</a></li>
+        <li><a href="attractions.jsp">Attractions</a></li>
+        <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
+    </ul>
 
-        <div class="login">
-            <% if (session.getAttribute("firstName") != null) { %>
-                <span style="color:white;">
-                    Welcome, <%= session.getAttribute("firstName") %> <%= session.getAttribute("lastName") %>
-                </span>
-                |
-                <a href="LogoutServlet" style="color:white;">Log Out</a>
-            <% } else { %>
-                <a href="login.jsp" style="color:white;">Log In</a>
-                |
-                <a href="signup.jsp" style="color:white;">Sign Up</a>
-            <% } %>
-        </div>
-
+    <div class="nav_auth">
+        <% if (session.getAttribute("firstName") != null) { %>
+            <span class="nav_welcome">Welcome, <%= session.getAttribute("firstName") %> <%= session.getAttribute("lastName") %></span>
+            <a href="LogoutServlet" class="nav_login">Log Out</a>
+        <% } else { %>
+            <a href="login.jsp" class="nav_login">Log In</a>
+            <a href="signup.jsp" class="nav_signup">Sign Up</a>
+        <% } %>
     </div>
-</div>
+</nav>
 
 <!-- MAIN CONTENT -->
 <div class="main-container">
 
     <!-- LEFT SIDE -->
     <div class="content">
-        <h1 style="text-align:center;">Attractions</h1>
+        <h1>Attractions</h1>
 
-        <!-- HERO SECTION (FIXED STRUCTURE) -->
-        <a href="water.jsp" class="hero-link" style="text-decoration:none;">
+        <!-- HERO SECTION -->
+        <a href="water.jsp" class="hero-link">
             <div class="hero">
-                <img src="${pageContext.request.contextPath}/mbpics/Water.jpg"
+                <img src="${pageContext.request.contextPath}/mbpics/mb_bay.jpg"
                      alt="Water Attractions"
                      class="hero-img">
 
@@ -206,7 +68,8 @@
 
             <a href="Nature.jsp" class="category-link">
                 <div class="category">
-                    <img src="${pageContext.request.contextPath}/mbpics/Outdoor.jpg"
+                    <img src="${pageContext.request.contextPath}/mbpics/mb_outdoor.jpg"
+                         alt="Outdoor and Nature Attractions"
                          class="category-img">
                     <div class="category-text">Outdoor/Nature Attractions</div>
                 </div>
@@ -214,7 +77,8 @@
 
             <a href="Local.jsp" class="category-link">
                 <div class="category">
-                    <img src="${pageContext.request.contextPath}/mbpics/Local.jpg"
+                    <img src="${pageContext.request.contextPath}/mbpics/mb_local.jpg"
+                         alt="Local and Cultural Attractions"
                          class="category-img">
                     <div class="category-text">Local &amp; Cultural Attractions</div>
                 </div>
@@ -222,7 +86,8 @@
 
             <a href="Food.jsp" class="category-link">
                 <div class="category">
-                    <img src="${pageContext.request.contextPath}/mbpics/food.jpg"
+                    <img src="${pageContext.request.contextPath}/mbpics/mb_dining.jpg"
+                         alt="Food Restaurants"
                          class="category-img">
                     <div class="category-text">Food Restaurants</div>
                 </div>
@@ -234,7 +99,6 @@
     <!-- RIGHT SIDE: INFO BOXES -->
     <div class="right-panel">
 
-        <!-- Latest News -->
         <div class="info-box">
             <h2>Latest News</h2>
             <p>Lodge stay sale May 18th to 22nd</p>
@@ -243,11 +107,8 @@
             <p>Fireworks Display July 4th</p>
         </div>
 
-        <!-- Main Attractions (keeps original + adds new) -->
         <div class="info-box">
             <h2>Main Attractions People Like to Visit</h2>
-
-            <!-- ORIGINAL (keep whatever you had here) -->
             <p>Explore Beaches</p>
             <p>Fishing Tours</p>
             <p>Scuba Diving</p>
@@ -256,14 +117,13 @@
             <p>Underwater Adventure</p>
         </div>
 
-        <!-- Social Media -->
         <div class="info-box">
             <h2>Moffat Bay Social Media Links</h2>
-
-            <!-- NEW CONTENT -->
-            <p><a href="https://x.com/">Twitter Link</a></p>
-            <p><a href="https://www.facebook.com/">Facebook Link</a></p>
-            <p>Contact Us</p>
+            <p><a href="about.jsp">Contact Us</a></p>
+            <div class="social_icons_row">
+                <a href="https://x.com/" target="_blank" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
             <p>1-555-555-5555</p>
         </div>
 
@@ -271,9 +131,13 @@
 
 </div>
 
-<!-- FOOTER -->
-<footer>
-    Trademarks
+<!-- Site footer -->
+<footer class="site_footer">
+    <div class="site_footer_inner">
+        <p class="site_footer_text">
+            &copy; 2026 Moffat Bay Resort &amp; Marina. All rights reserved. Joviedsa Island, PNW.
+        </p>
+    </div>
 </footer>
 
 </body>

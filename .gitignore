@@ -92,5 +92,15 @@ local.properties
 # Maven
 target/
 
+# IntelliJ IDEA / JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# MS Office temporary lock files
+~$*
+
 # Local dev helper (not needed by teammates)
 run.sh

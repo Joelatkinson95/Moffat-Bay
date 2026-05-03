@@ -12,7 +12,6 @@
 
         <!-- Link to stylesheet -->
         <link rel="stylesheet" href="mb_stylesheet.css">
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/about.css">
     </head>
     <body>
@@ -26,7 +25,7 @@
             <ul class="nav_links">
                 <li><a href="reservations.jsp">Book</a></li>
                 <li><a href="about.jsp">About Us</a></li>
-                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="attractions.jsp">Attractions</a></li>
                 <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
             </ul>
 
@@ -173,5 +172,14 @@
                 </form>
             </div>
         </section>
-    </body>
+    <!-- Site footer -->
+<footer class="site_footer">
+    <div class="site_footer_inner">
+        <p class="site_footer_text">
+            &copy; 2026 Moffat Bay Resort &amp; Marina. All rights reserved. Joviedsa Island, PNW.
+        </p>
+    </div>
+</footer>
+
+</body>
 </html>

@@ -25,7 +25,7 @@
     <ul class="nav_links">
         <li><a href="reservations.jsp">Book</a></li>
         <li><a href="about.jsp">About Us</a></li>
-        <li><a href="attractions.html">Attractions</a></li>
+        <li><a href="attractions.jsp">Attractions</a></li>
         <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
     </ul>
 
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Booking form -->
-    <form class="booking_bar" action="CheckAvailabilityServlet" method="GET">
+    <form class="booking_bar" action="reservations.jsp" method="GET">
 
         <div class="booking_field">
             <label for="checkIn">Check In</label>
@@ -115,6 +115,9 @@
         Welcome to the Moffat Bay Resort Lodge, Joviedsa Island
     </h2>
 
+    <!-- Salmon divider between heading and welcome card -->
+    <div class="welcome_salmon" role="img" aria-label="Salmon"></div>
+
     <!-- Blue card with info and lodge picture -->
     <div class="welcome_card">
         <div class="welcome_card_text">
@@ -134,6 +137,15 @@
     </div>
 
 </section>
+
+<!-- Site footer -->
+<footer class="site_footer">
+    <div class="site_footer_inner">
+        <p class="site_footer_text">
+            &copy; 2026 Moffat Bay Resort &amp; Marina. All rights reserved. Joviedsa Island, PNW.
+        </p>
+    </div>
+</footer>
 
 </body>
 </html>

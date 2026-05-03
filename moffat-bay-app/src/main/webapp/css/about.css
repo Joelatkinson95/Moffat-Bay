@@ -1,5 +1,8 @@
-.about-section,
-.contact-section{
+.about-section {
+    margin-top: var(--nav_height);
+}
+
+.contact-section {
     margin-top: 72px;
 }
 
