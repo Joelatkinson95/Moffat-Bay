@@ -10,7 +10,7 @@
     --white: #ffffff;
     --off_white: #f4f6f8;
     --text_dark: #1a1a2e;
-    --nav_height: 72px;
+    --nav_height: 130px;
 }
 
 
@@ -41,14 +41,14 @@ nav {
     right: 0;
     z-index: 1000;
     height: var(--nav_height);
-    background: var(--white);
+    background: var(--sea_blue);
     border-top: 5px solid var(--deep_sea_green);
     border-bottom: 5px solid var(--deep_sea_green);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    box-shadow: 0 2px 12px rgba(26, 74, 107, 0.12);
+    box-shadow: inset 0 2px 0 var(--white), inset 0 -2px 0 var(--white), 0 2px 12px rgba(26, 74, 107, 0.12);
 }
 
 /* Logo */
@@ -59,7 +59,7 @@ nav {
 }
 
 .nav_logo img {
-    height: 54px;
+    height: 100px;
     width: auto;
     object-fit: contain;
 }
@@ -76,18 +76,18 @@ nav {
 .nav_links a {
     text-decoration: none;
     font-weight: 600;
-    font-size: clamp(0.82rem, 1.2vw, 1.1rem);
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--sea_blue);
-    transition: color 0.2s;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
 }
 
 .nav_links a:hover {
+    background: var(--white);
     color: var(--deep_sea_green);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-color: var(--deep_sea_green);
 }
 
 /* Log in and sign up buttons */
@@ -98,25 +98,27 @@ nav {
 }
 
 .nav_login {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     font-weight: 600;
-    font-size: 0.88rem;
-    color: var(--deep_sea_green);
-    padding: 0.6rem 1.25rem;
+    font-size: 1.15rem;
+    color: var(--white);
+    padding: 0.85rem 1.8rem;
     border-radius: 4px;
     transition: background 0.2s, color 0.2s;
 }
 
 .nav_login:hover {
-    background: var(--deep_sea_green);
-    color: var(--white);
+    background: var(--white);
+    color: var(--sea_blue);
+    text-decoration: none;
 }
 
 /* Welcome message shown when user is logged in */
 .nav_welcome {
     font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--sea_blue);
+    font-size: 1.1rem;
+    color: var(--white);
     white-space: nowrap;
 }
 
@@ -124,25 +126,26 @@ nav {
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: var(--sea_blue);
+    background: var(--deep_sea_green);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: 1.15rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.6rem 1.25rem;
+    padding: 0.85rem 1.8rem;
     border-radius: 4px;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
 
 .nav_signup:hover {
-    background: var(--deep_sea_green);
+    background: var(--white);
+    color: var(--deep_sea_green);
 }
 
 .nav_signup::after {
     content: '→';
-    font-size: 1rem;
+    font-size: 1.35rem;
 }
 
 
@@ -280,7 +283,7 @@ nav {
 .welcome_heading {
     text-align: center;
     font-weight: 700;
-    font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+    font-size: clamp(1.15rem, 2.3vw, 1.6rem);
     color: var(--sea_blue);
     letter-spacing: 0.04em;
     display: flex;
@@ -381,3 +384,434 @@ nav {
         height: 190px;
     }
 }
+
+
+/* =================================================================
+   Attraction sub-pages — used by attractions.jsp, water.jsp, Food.jsp,
+   Local.jsp, Nature.jsp. Layout preserved from the original designs;
+   colors, fonts, and card treatment aligned to the rest of the site.
+   ================================================================= */
+
+/* Two-column page layout (water/Food/Local/Nature) */
+.page_container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+    margin-top: var(--nav_height);
+    background: var(--off_white);
+}
+
+.left_content {
+    flex: 3;
+}
+
+.right_sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sidebar boxes (right-hand info cards) */
+.sidebar_box {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(26, 74, 107, 0.08);
+    border-top: 4px solid var(--deep_sea_green);
+}
+
+.sidebar_box h3 {
+    color: var(--sea_blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sidebar_box p {
+    margin: 0 0 8px;
+    line-height: 1.6;
+}
+
+.sidebar_box a {
+    color: var(--sea_blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.sidebar_box a:hover {
+    color: var(--deep_sea_green);
+    text-decoration: underline;
+}
+
+/* Page titles */
+.attractions_title,
+.page_title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--sea_blue);
+    margin: 0 0 24px;
+    letter-spacing: -0.01em;
+}
+
+/* Main content boxes (water_box / main_box) */
+.water_box,
+.main_box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(26, 74, 107, 0.1);
+    border-top: 5px solid var(--deep_sea_green);
+}
+
+.water_box > h3,
+.main_box > h3 {
+    color: var(--sea_blue);
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin: 0 0 20px;
+}
+
+.water_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sea_blue);
+    margin: 0 0 25px;
+}
+
+/* water.jsp specific top section (image + text) */
+.water_top {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.water_image {
+    flex: 1;
+    min-width: 280px;
+}
+
+.water_image img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(26, 74, 107, 0.15);
+}
+
+.water_text {
+    flex: 1;
+    min-width: 280px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text_dark);
+}
+
+.water_text p {
+    margin-top: 0.6em;
+}
+
+.water_bottom {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.water_card {
+    flex: 1;
+    min-width: 280px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(26, 74, 107, 0.1);
+    border-top: 4px solid var(--deep_sea_green);
+}
+
+.water_card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.water_card_text {
+    padding: 18px;
+}
+
+.water_card_text h4 {
+    color: var(--sea_blue);
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.water_card_text p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Lists used on Food / Local / Nature */
+.restaurant_list,
+.local_list,
+.nature_list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.restaurant_list li,
+.local_list li,
+.nature_list li {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sea_blue);
+    margin-top: 16px;
+}
+
+.restaurant_list li:first-child,
+.local_list li:first-child,
+.nature_list li:first-child {
+    margin-top: 0;
+}
+
+.restaurant_list p,
+.local_list p,
+.nature_list p {
+    font-size: 0.95rem;
+    margin: 4px 0 0 14px;
+    line-height: 1.6;
+    color: var(--text_dark);
+}
+
+/* attractions.jsp - main hub layout */
+.main-container {
+    display: flex;
+    gap: 25px;
+    padding: 40px;
+    margin-top: var(--nav_height);
+    background: var(--off_white);
+}
+
+.content {
+    flex: 3;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(26, 74, 107, 0.1);
+    border-top: 5px solid var(--deep_sea_green);
+}
+
+.content h1 {
+    color: var(--sea_blue);
+    text-align: center;
+    font-weight: 800;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    margin: 0 0 24px;
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-box {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(26, 74, 107, 0.08);
+    border-top: 4px solid var(--deep_sea_green);
+}
+
+.info-box h2 {
+    color: var(--sea_blue);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.info-box p {
+    margin: 0 0 8px;
+    line-height: 1.6;
+}
+
+.info-box a {
+    color: var(--sea_blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.info-box a:hover {
+    color: var(--deep_sea_green);
+    text-decoration: underline;
+}
+
+/* Social icons row used in sidebar/info boxes */
+.social_icons_row {
+    display: flex;
+    gap: 0.6rem;
+    margin: 0.5rem 0 0.75rem;
+}
+
+.social_icons_row a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: var(--deep_sea_green);
+    border-radius: 50%;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.social_icons_row a:hover {
+    background: var(--sea_blue);
+    transform: translateY(-2px);
+}
+
+/* attractions.jsp - hero with overlay text */
+.hero-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.main-container .hero {
+    position: relative;
+    margin: 0 0 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(26, 74, 107, 0.18);
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    border-bottom: none;
+}
+
+.hero-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.25s, transform 0.4s;
+}
+
+.main-container .hero:hover .hero-img {
+    filter: brightness(75%);
+    transform: scale(1.02);
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 800;
+    color: var(--white);
+    background: rgba(15, 45, 66, 0.65);
+    padding: 16px 28px;
+    border-radius: 6px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    line-height: 1.3;
+}
+
+/* attractions.jsp - 3 category cards */
+.categories {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.category-link {
+    flex: 1;
+    min-width: 240px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.category {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(26, 74, 107, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(26, 74, 107, 0.22);
+}
+
+.category-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.25s;
+}
+
+.category:hover .category-img {
+    filter: brightness(78%);
+}
+
+.category-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(15, 45, 66, 0.78);
+    color: var(--white);
+    text-align: center;
+    padding: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+/* Shared site footer — ports the reservations page's Tailwind footer to plain CSS so
+   every page can use the exact same font, color, size, and spacing. */
+.site_footer {
+    background: var(--white);
+    padding: 2.5rem 0;
+    border-top: 1px solid #f1f5f9;
+    margin-top: 3rem;
+}
+
+.site_footer_inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.site_footer_text {
+    font-size: 9px;
+    color: #94a3b8;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 1.625;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .site_footer {
+        padding: 4rem 0;
+    }
+    .site_footer_inner {
+        padding: 0 2.5rem;
+    }
+}
+

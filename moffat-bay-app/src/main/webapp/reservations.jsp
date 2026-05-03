@@ -18,6 +18,8 @@
     String qpCheckIn = request.getParameter("checkIn");
     String qpCheckOut = request.getParameter("checkOut");
     String qpGuests = request.getParameter("guests");
+    String qpAdults = request.getParameter("adults");
+    String qpChildren = request.getParameter("children");
 
     Reservation res = (Reservation) request.getAttribute("reservation");
     @SuppressWarnings("unchecked")
@@ -70,8 +72,8 @@
     String valCheckIn  = formCheckIn  != null ? formCheckIn  : (qpCheckIn  != null ? qpCheckIn  : "");
     String valCheckOut = formCheckOut != null ? formCheckOut : (qpCheckOut != null ? qpCheckOut : "");
     String valRoom     = formRoomType != null ? formRoomType : qpRoom;
-    String valAdults   = formAdults   != null ? formAdults   : (qpGuests != null ? qpGuests : "2");
-    String valChildren = formChildren != null ? formChildren : "0";
+    String valAdults   = formAdults   != null ? formAdults   : (qpAdults != null ? qpAdults : (qpGuests != null ? qpGuests : "2"));
+    String valChildren = formChildren != null ? formChildren : (qpChildren != null ? qpChildren : "0");
     boolean valIsLocal = formIsLocal != null && formIsLocal.booleanValue();
 
     // Pull the distinct room types + their price from the DB so the booking form's
@@ -105,15 +107,11 @@
     <link rel="stylesheet" href="mb_stylesheet.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Force the shared nav's typography on a Tailwind page: Tailwind preflight otherwise
-         overrides font-family/weight inherited from body. Scoped to nav so the rest of
-         the page keeps Tailwind's defaults. -->
+    <!-- Tailwind preflight strips the body font-family, so re-scope Montserrat onto
+         the nav. Sizes/weights are intentionally NOT pinned here — they come from
+         mb_stylesheet.css so the nav stays uniform with the rest of the site. -->
     <style>
         nav, nav * { font-family: 'Montserrat', sans-serif; }
-        nav .nav_links a { font-weight: 600; font-size: clamp(0.82rem, 1.2vw, 1.1rem); }
-        nav .nav_login  { font-weight: 600; font-size: 0.88rem; }
-        nav .nav_welcome{ font-weight: 600; font-size: 0.85rem; }
-        nav .nav_signup { font-weight: 700; font-size: 0.82rem; }
     </style>
 </head>
 <body>
@@ -126,11 +124,9 @@
 
     <ul class="nav_links">
         <li><a href="reservations.jsp">Book</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="attractions.html">Attractions</a></li>
-        <% if (session.getAttribute("user_id") != null) { %>
-            <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
-        <% } %>
+        <li><a href="about.jsp">About Us</a></li>
+        <li><a href="attractions.jsp">Attractions</a></li>
+        <li><a href="reservations.jsp?view=lookup">Reservations</a></li>
     </ul>
 
     <div class="nav_auth">
@@ -288,7 +284,7 @@
                         Accessible via the Moffat Express Ferry departing daily from Friday Harbor. Advanced
                         booking is recommended for peak season travel.
                     </p>
-                    <a href="#" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition">
+                    <a href="https://wsdot.com/ferries/schedule/scheduledetailbyroute.aspx?route=ana-sj-sid" target="_blank" rel="noopener" class="text-[10px] font-bold text-emerald-400 hover:text-emerald-300 transition">
                         VIEW FERRY SCHEDULE <i class="fas fa-external-link-alt ml-1"></i>
                     </a>
                 </div>
